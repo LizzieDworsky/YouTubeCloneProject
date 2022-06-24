@@ -423,7 +423,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"text\": \"This is a testing replies POST\",\r\n    \"comment\": 1,\r\n    \"user\": \"admin\"\r\n}",
+									"raw": "{\r\n    \"text\": \"This is a testing replies POST\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -431,7 +431,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/replies/2/",
+									"raw": "http://127.0.0.1:8000/api/replies/4/",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -443,7 +443,7 @@
 									"path": [
 										"api",
 										"replies",
-										"2",
+										"4",
 										""
 									]
 								}
