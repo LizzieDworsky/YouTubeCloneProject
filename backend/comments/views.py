@@ -1,4 +1,3 @@
-from os import stat
 from django.shortcuts import get_object_or_404
 
 from rest_framework import status
@@ -7,8 +6,9 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 
 from .models import Comment
-from .serilizers import CommentSerializer
-from comments import serilizers
+from .serializers import CommentSerializer
+from ..replies.models import Reply
+from ..replies.serializers import ReplySerializer
 
 
 # Create your views here.
