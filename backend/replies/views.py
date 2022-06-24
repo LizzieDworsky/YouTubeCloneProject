@@ -11,5 +11,8 @@ from .serializers import ReplySerializer
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
-def replies_to_comments(request, pk):
-    pass
+def replies_to_comments(request, comment_id):
+    replies = Reply.objects.all()
+    replies = Reply.objects.filter(comment_id=comment_id)
+    serializer = ReplySerializer(replies, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
