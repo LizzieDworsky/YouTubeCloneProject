@@ -7,8 +7,6 @@ from rest_framework.decorators import api_view, permission_classes
 
 from .models import Comment
 from .serializers import CommentSerializer
-from ..replies.models import Reply
-from ..replies.serializers import ReplySerializer
 
 
 # Create your views here.
