@@ -14,20 +14,13 @@ import VideoPage from "./pages/VideoPage";
 // import Navbar from "./components/NavBar/NavBar";
 // import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 // Util Imports
 // import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
-    const [videoSeachData, setVideoSearchData] = useState([]);
-
-    async function getVideosSearch() {
-        let response = await axios.get("");
-        setVideoSearchData(response.data.items);
-    }
-
     return (
         <div>
             <Nav />
