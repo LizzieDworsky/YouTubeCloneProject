@@ -26,10 +26,10 @@ function App() {
             <Nav />
 
             <Routes>
-                <Route path="/" element={<SearchPage />} />
+                <Route exact path="/" element={<SearchPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/video" element={<VideoPage />} />
+                <Route path="/video/:videoId" element={<VideoPage />} />
             </Routes>
         </div>
         // <div>

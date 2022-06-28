@@ -1,10 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import Mapping from "../components/Mapping";
+import VideoPlayer from "../components/VideoPlayer";
 
 const VideoPage = () => {
     const [similarVideos, setSimilarVideos] = useState([]);
+    const { videoId } = useParams();
+    console.log(videoId);
 
     useEffect(() => {
         getSimilarVideos();
@@ -13,7 +17,7 @@ const VideoPage = () => {
     async function getSimilarVideos() {
         try {
             let response = await axios.get(
-                "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=Shl9yb5DMao&type=video&key=AIzaSyDmDC6WaZZyIWfcF-Mi5tVZ3AruJlNDRKM&part=snippet&maxResults=3"
+                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=Shl9yb5DMao&type=video&key=AIzaSyDmDC6WaZZyIWfcF-Mi5tVZ3AruJlNDRKM&part=snippet&maxResults=3`
             );
             console.log(response.data);
             setSimilarVideos(response.data.items);
@@ -25,17 +29,8 @@ const VideoPage = () => {
 
     return (
         <div>
-            <iframe
-                id="ytplayer"
-                type="text/html"
-                width="640"
-                height="360"
-                src="https://www.youtube.com/embed/M7lc1UVf-VE"
-                frameBorder="0"
-            ></iframe>
-            <div>
-                <Mapping array={similarVideos} />
-            </div>
+            <VideoPlayer />
+            <Mapping array={similarVideos} />
         </div>
     );
 };
