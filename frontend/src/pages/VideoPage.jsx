@@ -12,12 +12,14 @@ const VideoPage = () => {
 
     useEffect(() => {
         getSimilarVideos();
-    }, []);
+    }, [videoId]);
 
     async function getSimilarVideos() {
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=Shl9yb5DMao&type=video&key=AIzaSyDmDC6WaZZyIWfcF-Mi5tVZ3AruJlNDRKM&part=snippet&maxResults=3`
+                "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=" +
+                    videoId +
+                    "&type=video&key=AIzaSyDmDC6WaZZyIWfcF-Mi5tVZ3AruJlNDRKM&part=snippet"
             );
             console.log(response.data);
             setSimilarVideos(response.data.items);
