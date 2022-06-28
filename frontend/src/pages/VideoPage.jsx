@@ -29,7 +29,7 @@ const VideoPage = () => {
 
     return (
         <div>
-            <VideoPlayer />
+            <VideoPlayer videoId={videoId} />
             <Mapping array={similarVideos} />
         </div>
     );
