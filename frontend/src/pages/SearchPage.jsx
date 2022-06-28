@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import { googleApiKey } from "../keys";
+
 import SearchBar from "../components/SearchBar";
 import Mapping from "../components/Mapping";
 
@@ -18,7 +20,9 @@ const SearchPage = () => {
             let response = await axios.get(
                 "https://www.googleapis.com/youtube/v3/search?q=" +
                     searchCriteria +
-                    "&key=AIzaSyDmDC6WaZZyIWfcF-Mi5tVZ3AruJlNDRKM&type=video&part=snippet&maxResults=6"
+                    "&key=" +
+                    googleApiKey +
+                    "&type=video&part=snippet&maxResults=6"
             );
             console.log(response.data);
             setVideoSearchData(response.data.items);
