@@ -10,7 +10,9 @@ const Nav = (props) => {
         <div>
             <ul>
                 <li>
-                    <Link to="/">React YouTube</Link>
+                    <Link to="/">
+                        <h1>React YouTube</h1>
+                    </Link>
                 </li>
                 <li>
                     {user ? (
@@ -18,6 +20,15 @@ const Nav = (props) => {
                     ) : (
                         <button onClick={() => navigate("/login")}>
                             Login
+                        </button>
+                    )}
+                </li>
+                <li>
+                    {user ? (
+                        <span></span>
+                    ) : (
+                        <button onClick={() => navigate("/register")}>
+                            Register
                         </button>
                     )}
                 </li>

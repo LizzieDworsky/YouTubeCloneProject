@@ -11,11 +11,14 @@ const Mapping = ({ array }) => {
                     return (
                         <li key={item.id.videoId}>
                             <Link to={`/video/${item.id.videoId}`}>
-                                <img
-                                    src={item.snippet.thumbnails.high.url}
-                                    alt="video thumbnail"
-                                />
-                                <div>{item.snippet.title}</div>
+                                <div>
+                                    <img
+                                        src={item.snippet.thumbnails.high.url}
+                                        alt="video thumbnail"
+                                    />
+                                    <h3>{item.snippet.title}</h3>
+                                    <h4>{item.snippet.description}</h4>
+                                </div>
                             </Link>
                         </li>
                     );
