@@ -10,9 +10,12 @@ const Mapping = ({ array }) => {
                 if (item.snippet) {
                     return (
                         <li key={item.id.videoId}>
-                            <div>{item.snippet.title}</div>
                             <Link to={`/video/${item.id.videoId}`}>
-                                <button>See Video</button>
+                                <img
+                                    src={item.snippet.thumbnails.high.url}
+                                    alt="video thumbnail"
+                                />
+                                <div>{item.snippet.title}</div>
                             </Link>
                         </li>
                     );
