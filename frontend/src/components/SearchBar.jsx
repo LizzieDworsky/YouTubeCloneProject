@@ -1,10 +1,12 @@
 import React from "react";
 
-const SearchBar = (props) => {
+const SearchBar = ({ setState }) => {
     return (
         <form>
-            <input type="text" />
-            <button>Search</button>
+            <input
+                type="text"
+                onChange={(event) => setState(event.target.value)}
+            />
         </form>
     );
 };
