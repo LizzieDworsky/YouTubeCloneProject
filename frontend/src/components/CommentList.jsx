@@ -6,11 +6,9 @@ const CommentList = ({ array }) => {
     return (
         <>
             {console.log("array", array)}
-            <p>Hello World</p>
             {array.map((item) => (
-                <p>hi</p>
+                <Comment comment={item} />
             ))}
-            <p>after map</p>
         </>
     );
 };

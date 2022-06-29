@@ -69,16 +69,15 @@ const VideoPage = () => {
     return (
         <div>
             <div>
-                <CommentList array={videoComments} />
-                <p>end of comment list</p>
-            </div>
-            <div>
                 <VideoPlayer videoId={videoId} />
                 {console.log(currentVideo)}
                 <DisplayTitleDescription array={currentVideo} />
             </div>
             <div>
                 <Mapping array={similarVideos} />
+            </div>
+            <div>
+                <CommentList array={videoComments} />
             </div>
         </div>
     );
