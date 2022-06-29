@@ -4,7 +4,7 @@ const Comment = ({ comment }) => {
     return (
         <div>
             {console.log(comment)}
-            <h3>{comment.user}</h3>
+            <h3>{comment.user.username}</h3>
             <p>{comment.text}</p>
             <p>Hello World</p>
         </div>

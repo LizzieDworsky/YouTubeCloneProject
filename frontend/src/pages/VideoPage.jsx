@@ -69,16 +69,16 @@ const VideoPage = () => {
     return (
         <div>
             <div>
+                <CommentList array={videoComments} />
+                <p>end of comment list</p>
+            </div>
+            <div>
                 <VideoPlayer videoId={videoId} />
                 {console.log(currentVideo)}
-                {/* <DisplayTitleDescription array={currentVideo} /> */}
-                {/* I can't figure out how to set up the conditional return for Title and Description */}
+                <DisplayTitleDescription array={currentVideo} />
             </div>
             <div>
                 <Mapping array={similarVideos} />
-            </div>
-            <div>
-                <CommentList array={videoComments} />
             </div>
         </div>
     );
