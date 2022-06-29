@@ -6,12 +6,12 @@ import { googleApiKey } from "../keys";
 
 import Mapping from "../components/Mapping";
 import VideoPlayer from "../components/VideoPlayer";
+import DisplayTitleDescription from "../components/DisplayTitleDescription";
 
 const VideoPage = () => {
     const [currentVideo, setCurrentVideo] = useState([]);
     const [similarVideos, setSimilarVideos] = useState([]);
     const { videoId } = useParams();
-    console.log(videoId);
 
     useEffect(() => {
         getVideoInfo();
@@ -26,7 +26,9 @@ const VideoPage = () => {
             let response = await axios.get(
                 "https://youtube.googleapis.com/youtube/v3/videos?id=" +
                     videoId +
-                    "&key=AIzaSyDqfyn9DXLGH5E2c4Sddj8zQQMCF30pnqA&part=snippet"
+                    "&type=video&key=" +
+                    googleApiKey +
+                    "&part=snippet"
             );
             setCurrentVideo(response.data.items);
         } catch (error) {
@@ -54,8 +56,8 @@ const VideoPage = () => {
             <div>
                 <VideoPlayer videoId={videoId} />
                 {console.log(currentVideo)}
-                {/* <h2>{currentVideo[0].snippet.title}</h2>
-                <h4>{currentVideo[0].snippet.description}</h4> */}
+                {/* <DisplayTitleDescription array={currentVideo} /> */}
+                {/* I can't figure out how to set up the conditional return for Title and Description */}
             </div>
             <div>
                 <Mapping array={similarVideos} />
