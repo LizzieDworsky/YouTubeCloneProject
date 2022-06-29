@@ -1,14 +1,18 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 import { googleApiKey } from "../keys";
 
 import Mapping from "../components/Mapping";
 import VideoPlayer from "../components/VideoPlayer";
+import CommentList from "../components/CommentList";
 import DisplayTitleDescription from "../components/DisplayTitleDescription";
 
 const VideoPage = () => {
+    const { logoutUser, user } = useContext(AuthContext);
+    const [videoComments, setVideoComments] = useState([]);
     const [currentVideo, setCurrentVideo] = useState([]);
     const [similarVideos, setSimilarVideos] = useState([]);
     const { videoId } = useParams();
@@ -20,6 +24,10 @@ const VideoPage = () => {
     useEffect(() => {
         getSimilarVideos();
     }, [videoId]);
+
+    useEffect(() => {
+        getAllComments();
+    }, []);
 
     async function getVideoInfo() {
         try {
@@ -51,6 +59,13 @@ const VideoPage = () => {
         }
     }
 
+    async function getAllComments() {
+        let response = await axios.get(
+            "http://127.0.0.1:8000/api/comments/" + videoId + "/"
+        );
+        setVideoComments(response.data);
+    }
+
     return (
         <div>
             <div>
@@ -61,6 +76,9 @@ const VideoPage = () => {
             </div>
             <div>
                 <Mapping array={similarVideos} />
+            </div>
+            <div>
+                <CommentList array={videoComments} />
             </div>
         </div>
     );
