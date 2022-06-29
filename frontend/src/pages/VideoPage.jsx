@@ -8,13 +8,31 @@ import Mapping from "../components/Mapping";
 import VideoPlayer from "../components/VideoPlayer";
 
 const VideoPage = () => {
+    const [currentVideo, setCurrentVideo] = useState([]);
     const [similarVideos, setSimilarVideos] = useState([]);
     const { videoId } = useParams();
     console.log(videoId);
 
     useEffect(() => {
+        getVideoInfo();
+    }, []);
+
+    useEffect(() => {
         getSimilarVideos();
     }, [videoId]);
+
+    async function getVideoInfo() {
+        try {
+            let response = await axios.get(
+                "https://youtube.googleapis.com/youtube/v3/videos?id=" +
+                    videoId +
+                    "&key=AIzaSyDqfyn9DXLGH5E2c4Sddj8zQQMCF30pnqA&part=snippet"
+            );
+            setCurrentVideo(response.data.items);
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
 
     async function getSimilarVideos() {
         try {
@@ -25,18 +43,23 @@ const VideoPage = () => {
                     googleApiKey +
                     "&part=snippet&maxResults=4"
             );
-            console.log(response.data);
             setSimilarVideos(response.data.items);
         } catch (error) {
             console.log(error.response.data);
         }
-        console.log(similarVideos);
     }
 
     return (
         <div>
-            <VideoPlayer videoId={videoId} />
-            <Mapping array={similarVideos} />
+            <div>
+                <VideoPlayer videoId={videoId} />
+                {console.log(currentVideo)}
+                {/* <h2>{currentVideo[0].snippet.title}</h2>
+                <h4>{currentVideo[0].snippet.description}</h4> */}
+            </div>
+            <div>
+                <Mapping array={similarVideos} />
+            </div>
         </div>
     );
 };

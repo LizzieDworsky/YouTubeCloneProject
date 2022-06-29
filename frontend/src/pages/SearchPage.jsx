@@ -24,12 +24,10 @@ const SearchPage = () => {
                     googleApiKey +
                     "&type=video&part=snippet&maxResults=6"
             );
-            console.log(response.data);
             setVideoSearchData(response.data.items);
         } catch (error) {
             console.log(error.response.data);
         }
-        console.log(videoSearchData);
     }
 
     return (
