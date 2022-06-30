@@ -5,19 +5,23 @@ const Mapping = ({ array }) => {
     function handleClick() {}
 
     return (
-        <ul>
+        <ul className="video-list">
             {array.map((item) => {
                 if (item.snippet) {
                     return (
-                        <li key={item.id.videoId}>
+                        <li className="video-list-item" key={item.id.videoId}>
                             <Link to={`/video/${item.id.videoId}`}>
-                                <div>
+                                <div className="video-list-box">
                                     <img
                                         src={item.snippet.thumbnails.high.url}
                                         alt="video thumbnail"
                                     />
-                                    <h3>{item.snippet.title}</h3>
-                                    <h4>{item.snippet.description}</h4>
+                                    <h3 className="video-list-info">
+                                        {item.snippet.title}
+                                    </h3>
+                                    <h4 className="video-list-info">
+                                        {item.snippet.description}
+                                    </h4>
                                 </div>
                             </Link>
                         </li>
