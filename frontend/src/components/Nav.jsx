@@ -14,7 +14,7 @@ const Nav = (props) => {
                         <h1>React YouTube</h1>
                     </Link>
                 </li>
-                <li className="nav-list-button">
+                <li className="nav-login-out-button">
                     {user ? (
                         <button className="nav-buttons" onClick={logoutUser}>
                             Logout

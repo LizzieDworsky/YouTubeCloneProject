@@ -32,9 +32,11 @@ const SearchPage = () => {
 
     return (
         <div>
-            <div>
+            <div className="search-bar-div">
                 <SearchBar setState={setSearchCriteria} />
-                <button onClick={getVideosSearch}>Search</button>
+                <button className="search-button" onClick={getVideosSearch}>
+                    Search
+                </button>
             </div>
             <Mapping array={videoSearchData} />
         </div>
