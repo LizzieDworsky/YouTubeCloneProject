@@ -27,6 +27,11 @@ hr {
     box-shadow: 1px 1px 3px black;
 }
 
+img {
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px #000000;
+}
+
 .nav-login-out-button {
     margin-left: 40em;
     margin-right: 20px;

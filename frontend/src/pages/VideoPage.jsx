@@ -9,9 +9,11 @@ import Mapping from "../components/Mapping";
 import VideoPlayer from "../components/VideoPlayer";
 import CommentList from "../components/CommentList";
 import DisplayTitleDescription from "../components/DisplayTitleDescription";
+import CommentForm from "../components/CommentForm";
+import useAuth from "../hooks/useAuth";
 
 const VideoPage = () => {
-    const { logoutUser, user } = useContext(AuthContext);
+    const { user, token } = useAuth();
     const [videoComments, setVideoComments] = useState([]);
     const [currentVideo, setCurrentVideo] = useState([]);
     const [similarVideos, setSimilarVideos] = useState([]);
@@ -66,6 +68,23 @@ const VideoPage = () => {
         setVideoComments(response.data);
     }
 
+    async function createComment(newComment) {
+        let response = await axios.post(
+            "http://127.0.0.1:8000/api/comments/users/" + videoId + "/",
+            newComment,
+            {
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            }
+        );
+        if (response.status === 201) {
+            await getAllComments();
+        } else {
+            console.log(response.status);
+        }
+    }
+
     return (
         <div>
             <div>
@@ -75,6 +94,9 @@ const VideoPage = () => {
             </div>
             <div>
                 <Mapping array={similarVideos} />
+            </div>
+            <div>
+                <CommentForm addComment={createComment} />
             </div>
             <div className="comment-list-div">
                 <CommentList array={videoComments} />
