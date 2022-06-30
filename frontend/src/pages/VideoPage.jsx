@@ -13,7 +13,7 @@ import CommentForm from "../components/CommentForm";
 import useAuth from "../hooks/useAuth";
 
 const VideoPage = () => {
-    const { user, token } = useAuth();
+    const [user, token] = useAuth();
     const [videoComments, setVideoComments] = useState([]);
     const [currentVideo, setCurrentVideo] = useState([]);
     const [similarVideos, setSimilarVideos] = useState([]);
@@ -95,8 +95,14 @@ const VideoPage = () => {
             <div>
                 <Mapping array={similarVideos} />
             </div>
-            <div>
-                <CommentForm addComment={createComment} />
+            <div className="add-comment-div">
+                {user ? (
+                    <CommentForm addComment={createComment} />
+                ) : (
+                    <p className="comment-user-false">
+                        Need to be logged in to add a comment.
+                    </p>
+                )}
             </div>
             <div className="comment-list-div">
                 <CommentList array={videoComments} />

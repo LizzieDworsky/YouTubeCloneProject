@@ -13,13 +13,19 @@ const CommentForm = ({ addComment }) => {
     }
 
     return (
-        <form onSubmit={(event) => handleAddComment(event)}>
+        <form
+            className="comment-form"
+            onSubmit={(event) => handleAddComment(event)}
+        >
             <input
+                className="comment-input"
                 value={commentText}
                 type="text"
                 onChange={(event) => setCommentText(event.target.value)}
             />
-            <button type="submit">Add Comment</button>
+            <button className="comment-form-button" type="submit">
+                Add Comment
+            </button>
         </form>
     );
 };
