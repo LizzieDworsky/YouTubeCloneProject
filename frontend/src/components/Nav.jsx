@@ -9,25 +9,33 @@ const Nav = (props) => {
     return (
         <div>
             <ul>
-                <li>
+                <li className="nav-title">
                     <Link to="/">
                         <h1>React YouTube</h1>
                     </Link>
                 </li>
-                <li>
+                <li className="nav-list-button">
                     {user ? (
-                        <button onClick={logoutUser}>Logout</button>
+                        <button className="nav-buttons" onClick={logoutUser}>
+                            Logout
+                        </button>
                     ) : (
-                        <button onClick={() => navigate("/login")}>
+                        <button
+                            className="nav-buttons"
+                            onClick={() => navigate("/login")}
+                        >
                             Login
                         </button>
                     )}
                 </li>
-                <li>
+                <li className="nav-list-button">
                     {user ? (
                         <span></span>
                     ) : (
-                        <button onClick={() => navigate("/register")}>
+                        <button
+                            className="nav-buttons"
+                            onClick={() => navigate("/register")}
+                        >
                             Register
                         </button>
                     )}

@@ -1,0 +1,36 @@
+body {
+    background: linear-gradient(90deg, #119793, #ac406e);
+}
+
+h1 {
+    color: white;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline-flex;
+}
+
+.nav-list-button {
+    margin-left: 40em;
+}
+
+.nav-buttons {
+    padding: 5px 15px;
+    border: 1px solid #119793;
+    background-color: #119793;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    box-shadow: 3px 3px 10px black;
+}
+
+.nav-buttons:hover {
+    background-color: transparent;
+}
