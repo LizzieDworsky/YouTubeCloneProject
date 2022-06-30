@@ -87,7 +87,7 @@ const VideoPage = () => {
 
     return (
         <div>
-            <div>
+            <div className="">
                 <VideoPlayer videoId={videoId} />
                 {console.log(currentVideo)}
                 <DisplayTitleDescription array={currentVideo} />

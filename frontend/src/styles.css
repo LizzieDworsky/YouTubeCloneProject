@@ -33,6 +33,27 @@ img {
     box-shadow: 2px 2px 15px #000000;
 }
 
+.video-player {
+    margin: 20px 10%;
+    border: 3px solid #ac406e;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px black;
+    width: 80%;
+    height: 500px;
+}
+
+.current-video-title {
+    text-align: center;
+    color: #d9fffc;
+    text-shadow: 1px 1px 1px black;
+}
+
+.current-video-description {
+    color: #d9fffc;
+    width: 80%;
+    margin: 10px 11%;
+}
+
 .nav-login-out-button {
     margin-left: 40em;
     margin-right: 20px;

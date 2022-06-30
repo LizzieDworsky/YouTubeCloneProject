@@ -3,12 +3,12 @@ import React from "react";
 const VideoPlayer = ({ videoId }) => {
     return (
         <iframe
+            className="video-player"
             id="ytplayer"
             type="text/html"
-            width="640"
-            height="360"
             src={`https://www.youtube.com/embed/${videoId}`}
             frameBorder="0"
+            allow="fullscreen"
         ></iframe>
     );
 };
