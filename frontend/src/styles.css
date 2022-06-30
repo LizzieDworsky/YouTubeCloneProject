@@ -11,6 +11,7 @@ h1 {
 ul {
     list-style-type: none;
     background-color: #d9fffc3a;
+    border-radius: 15px;
 }
 
 li {
@@ -114,7 +115,39 @@ img {
     padding: 0;
 }
 
+.comment-header {
+    text-align: center;
+    color: #d9fffc;
+    text-shadow: 1px 1px 1px black;
+    font-size: 32px;
+}
+
+.comment-hr {
+    border-color: #d9fffc;
+}
+
 .comment-list-div {
+    position: absolute;
+    left: 25%;
+    background-color: #d9fffc3a;
+    width: 50%;
+    margin-top: 30px;
+    border-radius: 15px;
+    padding: 2%;
+}
+
+.individual-comment-box {
+    padding: 20px;
+    color: #ffeef8;
+    text-shadow: 1px 1px 1px black;
+}
+
+.comment-username {
+    font-size: 25px;
+}
+
+.comment-text {
+    font-size: 18px;
     text-align: center;
 }
 
@@ -124,13 +157,12 @@ img {
     color: #d9fffc;
     text-shadow: 1px 1px 1px black;
     height: 100px;
-    width: 70%;
 }
 
 .add-comment-div {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
     border: 5px solid #ac406e;
     box-shadow: 1px 1px 5px black;
     border-radius: 100px;

@@ -105,6 +105,8 @@ const VideoPage = () => {
                 )}
             </div>
             <div className="comment-list-div">
+                <h2 className="comment-header">Comments</h2>
+                <hr className="comment-hr" />
                 <CommentList array={videoComments} />
             </div>
         </div>
