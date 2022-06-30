@@ -19,7 +19,8 @@ const Mapping = ({ array }) => {
                                     <h3 className="video-list-info">
                                         {item.snippet.title}
                                     </h3>
-                                    <h4 className="video-list-info">
+                                    <hr />
+                                    <h4 className="video-list-info description">
                                         {item.snippet.description}
                                     </h4>
                                 </div>

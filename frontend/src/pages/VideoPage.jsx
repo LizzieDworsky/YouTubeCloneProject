@@ -76,7 +76,7 @@ const VideoPage = () => {
             <div>
                 <Mapping array={similarVideos} />
             </div>
-            <div>
+            <div className="comment-list-div">
                 <CommentList array={videoComments} />
             </div>
         </div>
